@@ -2,6 +2,8 @@ from django import forms
 from recipebox.models import Chef
 
 class AddAuthorForm(forms.ModelForm):
+    username = forms.CharField(max_length = 50)
+    password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = Chef
         fields = [
@@ -18,18 +20,6 @@ class AddRecipeForm(forms.Form):
     instructions = forms.CharField(widget=forms.Textarea)
 
 
-"""
-class Chef(models.Model):
-    name = models.CharField(max_length=50)
-    bio = models.TextField(null=True)
-    def __str__(self):
-        return self.name
-
-class Recipe(models.Model):
-    title = models.CharField(max_length=30)
-    author = models.ForeignKey(Chef, on_delete=models.CASCADE)
-    description = models.CharField(max_length=30, null=True)
-    time = models.CharField(max_length=10, null=True)
-    instructions = models.TextField()
-
-    """
+class LoginUserForm(forms.Form):
+    username = forms.CharField(max_length = 50)
+    password = forms.CharField(widget=forms.PasswordInput)

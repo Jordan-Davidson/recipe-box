@@ -3,8 +3,10 @@ from recipebox import views
 
 urlpatterns = [
     path('', views.index, name='homepage'),
-    path('addAuthor', views.add_author),
-    path('addRecipe', views.add_recipe),
-    path('chef/<int:id>', views.chef),
-    path('recipe/<int:id>', views.recipe)
+    path('addAuthor/', views.add_author),
+    path('addRecipe/', views.add_recipe),
+    path('chef/<int:id>/', views.chef),
+    path('recipe/<int:id>/', views.recipe),
+    path('login/', views.loginUser),
+    path('logout/', views.logoutUser)
 ]
